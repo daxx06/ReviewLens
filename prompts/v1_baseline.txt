@@ -1,0 +1,7 @@
+Analyze the customer reviews below.
+1. List the common themes.
+2. Give the sentiment for each theme and how many reviews mention it.
+3. Suggest 3 improvements for the seller.
+
+Reviews:
+{reviews}

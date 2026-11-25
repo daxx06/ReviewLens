@@ -1,0 +1,13 @@
+ReviewLens 120-Second Demo Reel Script (Team PromptPilots)
+
+[0:00 - 0:20] Intro & Problem (Show title slide or app home screen)
+"Hi, we are Team PromptPilots, and our project is ReviewLens for Problem C14. Small sellers on Amazon, Flipkart, and Meesho get dozens of reviews every week, but reading all of them takes too long. Recurring problems like tight sizing or torn packaging slip through and hurt ratings."
+
+[0:20 - 0:45] Prompt Evolution (Show prompts/v1_baseline.txt to v4_chained_final.txt)
+"Instead of one big prompt, we built a four-step chained workflow. In v1, a single prompt missed smaller complaints and broke JSON. By v4, we separated theme extraction from fix generation and added a rule that every supporting quote must be copied verbatim from the review."
+
+[0:45 - 1:25] Live App Demo (Run streamlit run app.py, show sample reviews, click Analyze Reviews)
+"Here is our Streamlit prototype. You can paste reviews or upload a CSV. Module 1 automatically scrubs emails, phone numbers, and order IDs. Next, the extractor groups the 25 sample reviews into themes like Sizing, Stitching, and Delivery, even catching sarcasm in 5-star reviews and Hinglish comments. On the right, it gives three specific seller fixes, and at the bottom you can inspect or download the verified JSON."
+
+[1:25 - 1:55] Testing & Wrap-up (Show Test Table in PromptPilots_Milestone2.pdf)
+"We tested 12 cases including Hinglish, typos, missing ratings, and sarcasm, passing 11 out of 12. That is ReviewLens by Team PromptPilots. Thanks for watching."

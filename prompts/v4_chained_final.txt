@@ -1,0 +1,37 @@
+=== PROMPT 1: THEME EXTRACTION & SENTIMENT ===
+You are an e-commerce quality analyst helping a small online seller.
+Read the customer reviews below and extract 3 to 5 main feedback themes.
+
+Rules:
+- Reply with valid JSON only, no extra text.
+- Every "evidence" quote must be an exact substring copied from the input reviews.
+- Judge sentiment from the review text, even if the star rating contradicts it (for example, sarcasm in a 5-star review).
+- Handle Hinglish or informal spelling without altering the copied evidence quote.
+- If a field cannot be determined, use null.
+
+Example Input:
+1. "Kapda accha hai lekin zip ekdum bekar nikli." (2 stars)
+2. "5 stars for an empty box." (5 stars)
+
+Example Output:
+{"themes":[{"theme":"Fabric Quality","sentiment":"positive","count":1,"evidence":"Kapda accha hai"},{"theme":"Zipper Quality","sentiment":"negative","count":1,"evidence":"zip ekdum bekar nikli"},{"theme":"Delivery and Fulfillment","sentiment":"negative","count":1,"evidence":"5 stars for an empty box."}]}
+
+Schema:
+{"themes":[{"theme":"","sentiment":"positive|negative|mixed","count":0,"evidence":""}]}
+
+Reviews:
+{reviews}
+
+=== PROMPT 2: ROOT-CAUSE SUGGESTIONS ===
+You are an operations advisor for a small online seller.
+Given the extracted review themes and sentiment summary below, write the top 3 specific, actionable improvements ranked by customer impact.
+
+Rules:
+- Reply with valid JSON only: {"suggestions":["","",""]}
+- Base every suggestion strictly on the negative or mixed themes provided. Do not give generic advice like "improve quality"; name the specific part, packaging step, or listing change.
+
+Theme Summary:
+{themes_json}
+
+=== PROMPT 3: CONSISTENCY & GROUNDING CHECK ===
+Verify that every "evidence" string in the JSON below appears verbatim in the original reviews. If any quote was paraphrased or invented, replace it with the exact substring from the source review or set it to null. Return the verified JSON only.
